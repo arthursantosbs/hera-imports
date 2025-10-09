@@ -1,7 +1,6 @@
 
-import React from 'react'
 import { motion } from 'framer-motion'
-import {Users, Award, Heart, Shield, MapPin, Clock, Phone, CheckCircle, Star, Target} from 'lucide-react'
+import {Users, Award, Heart, Shield, Clock, Phone, CheckCircle, Star, ShoppingCart} from 'lucide-react'
 
 const Sobre = () => {
   const values = [
@@ -27,19 +26,11 @@ const Sobre = () => {
     }
   ]
 
-  const stats = [
-    { number: '1000+', label: 'Clientes Satisfeitos' },
-    { number: '500+', label: 'Produtos Vendidos' },
-    { number: '2+', label: 'Anos de Experiência' },
-    { number: '100%', label: 'Produtos Originais' }
-  ]
-
-  
-
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20">
+      <section className="relative text-white py-20 bg-gradient-to-br from-primary to-secondary overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-smoke-top opacity-60" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -48,53 +39,13 @@ const Sobre = () => {
             className="text-center"
           >
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
-              Sobre a <span className="text-yellow-400">PodsPB</span>
+              Sobre a <span className="text-yellow-400">Hera pod’s</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
-              Sua loja especializada em vaping em Esperança, oferecendo produtos de qualidade 
-              e atendimento especializado desde 2022.
+            <p className="text-xl md:text-2xl text-red-100 max-w-3xl mx-auto">
+              Sua loja 100% online especializada em vaping em Esperança, oferecendo produtos de qualidade 
+              e atendimento especializado.
             </p>
           </motion.div>
-        </div>
-      </section>
-
-      
-
-      {/* Estatísticas */}
-      <section className="py-20 bg-gradient-to-r from-purple-600 to-blue-600">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
-              Números que Falam por Si
-            </h2>
-            <p className="text-xl text-blue-100">
-              Nosso crescimento é reflexo da confiança dos nossos clientes
-            </p>
-          </motion.div>
-
-          <div className="grid grid-cols-2 lg:grid-cols-4 gap-8">
-            {stats.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                className="text-center"
-              >
-                <div className="text-4xl md:text-5xl font-bold text-white mb-2">
-                  {stat.number}
-                </div>
-                <div className="text-blue-100">
-                  {stat.label}
-                </div>
-              </motion.div>
-            ))}
-          </div>
         </div>
       </section>
 
@@ -124,7 +75,7 @@ const Sobre = () => {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="bg-white p-6 rounded-2xl shadow-lg text-center hover:shadow-2xl transition-all duration-300"
               >
-                <div className="w-16 h-16 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
+                <div className="w-16 h-16 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center mx-auto mb-4">
                   <value.icon className="w-8 h-8 text-white" />
                 </div>
                 <h3 className="text-xl font-semibold text-gray-900 mb-3">
@@ -139,55 +90,51 @@ const Sobre = () => {
         </div>
       </section>
 
-      
-
       {/* Informações da Loja */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
             >
               <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-                Visite Nossa <span className="gradient-text">Loja</span>
+                Nossa Loja <span className="gradient-text">100% Online</span>
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Estamos localizados no coração de Esperança, oferecendo um ambiente 
-                acolhedor e produtos de qualidade para toda a comunidade de vaping.
+                Somos uma loja totalmente online, dedicada a entregar os melhores produtos de vaping com a conveniência de um clique. Compre de onde estiver e receba em casa.
               </p>
 
               <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                    <MapPin className="w-6 h-6 text-purple-600" />
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <ShoppingCart className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Endereço</h3>
-                    <p className="text-gray-600">Esperança, Paraíba</p>
+                    <h3 className="font-semibold text-gray-900">Como Comprar</h3>
+                    <p className="text-gray-600">Navegue pelo nosso site e faça seu pedido online.</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                    <Clock className="w-6 h-6 text-purple-600" />
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Clock className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Horário de Funcionamento</h3>
-                    <p className="text-gray-600">Segunda a Sábado: 9h às 18h</p>
-                    <p className="text-gray-600">Domingo: 14h às 18h</p>
+                    <h3 className="font-semibold text-gray-900">Horário de Atendimento</h3>
+                    <p className="text-gray-600">Domingo a Domingo: 12h às 20h</p>
                   </div>
                 </div>
 
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-purple-600" />
+                <div className="flex items-start space-x-4">
+                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
+                    <Phone className="w-6 h-6 text-primary" />
                   </div>
                   <div>
                     <h3 className="font-semibold text-gray-900">Contato</h3>
                     <p className="text-gray-600">+55 83 9402-7461</p>
-                    <p className="text-gray-600">contato@podspb.com.br</p>
+                    <p className="text-gray-600">contato@herapods.com.br</p>
                   </div>
                 </div>
               </div>
@@ -208,10 +155,10 @@ const Sobre = () => {
               initial={{ opacity: 0, x: 50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="bg-white p-8 rounded-2xl shadow-lg"
+              className="bg-gray-50 p-8 rounded-2xl shadow-lg border border-gray-200"
             >
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Por que Escolher a PodsPB?
+                Por que Escolher a Hera pod’s?
               </h3>
               
               <div className="space-y-4">
@@ -221,7 +168,7 @@ const Sobre = () => {
                   'Entrega rápida em Esperança',
                   'Preços competitivos e promoções exclusivas',
                   'Suporte técnico e pós-venda',
-                  'Ambiente seguro e acolhedor'
+                  'Compra online fácil e segura'
                 ].map((item, index) => (
                   <div key={index} className="flex items-center space-x-3">
                     <CheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
@@ -230,13 +177,13 @@ const Sobre = () => {
                 ))}
               </div>
 
-              <div className="mt-8 p-4 bg-gradient-to-r from-purple-50 to-blue-50 rounded-lg">
+              <div className="mt-8 p-4 bg-gradient-to-r from-red-100 to-red-50 rounded-lg">
                 <div className="flex items-center space-x-3 mb-2">
                   <Star className="w-5 h-5 text-yellow-400 fill-current" />
                   <span className="font-semibold text-gray-900">Avaliação dos Clientes</span>
                 </div>
                 <p className="text-gray-600">
-                  4.9/5 estrelas baseado em mais de 200 avaliações
+                  Nossos clientes nos avaliam com 4.9/5 estrelas!
                 </p>
               </div>
             </motion.div>

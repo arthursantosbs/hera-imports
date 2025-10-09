@@ -18,11 +18,11 @@ body {
 }
 
 .gradient-bg {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background: linear-gradient(135deg, #7f1d1d 0%, #991b1b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -59,8 +59,45 @@ body {
 }
 
 .bg-pattern {
-  background-image: radial-gradient(circle at 25% 25%, #667eea 0%, transparent 50%),
-                    radial-gradient(circle at 75% 75%, #764ba2 0%, transparent 50%);
+  background-image: radial-gradient(circle at 25% 25%, #7f1d1d 0%, transparent 50%),
+                    radial-gradient(circle at 75% 75%, #991b1b 0%, transparent 50%);
+}
+
+/* Heavy smoke effect for 18+ modal */
+@keyframes smoke-rise {
+  0% {
+    transform: translateY(20%) scale(0.8);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.35;
+  }
+  100% {
+    transform: translateY(-120%) scale(1.7);
+    opacity: 0;
+  }
+}
+
+.smoke-overlay {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.smoke-puff {
+  position: absolute;
+  bottom: -12%;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(closest-side, rgba(255,255,255,0.18), rgba(255,255,255,0.1), rgba(255,255,255,0));
+  filter: blur(10px);
+  opacity: 0.25;
+  border-radius: 50%;
+  animation-name: smoke-rise;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  mix-blend-mode: screen;
 }
 
 .glass-effect {
@@ -70,9 +107,9 @@ body {
 }
 
 .btn-primary {
-  @apply bg-gradient-to-r from-purple-600 to-blue-600 text-white px-8 py-3 rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition-all duration-300 transform hover:scale-105;
+  @apply bg-accent text-white px-8 py-3 rounded-full font-semibold hover:bg-green-700 transition-all duration-300 transform hover:scale-105;
 }
 
 .btn-secondary {
-  @apply bg-white text-purple-600 px-8 py-3 rounded-full font-semibold border-2 border-purple-600 hover:bg-purple-600 hover:text-white transition-all duration-300;
+  @apply bg-white text-primary px-8 py-3 rounded-full font-semibold border-2 border-primary hover:bg-primary hover:text-white transition-all duration-300;
 }

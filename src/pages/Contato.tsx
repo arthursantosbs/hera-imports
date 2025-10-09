@@ -31,7 +31,8 @@ const Contato = () => {
   return (
     <div className="pt-16">
       {/* Hero Section */}
-      <section className="bg-gradient-to-r from-purple-600 to-blue-600 text-white py-20">
+      <section className="relative text-white py-20 bg-gradient-to-br from-primary to-secondary overflow-hidden">
+        <div className="pointer-events-none absolute inset-0 bg-smoke-top opacity-60" />
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
@@ -42,7 +43,7 @@ const Contato = () => {
             <h1 className="text-4xl md:text-6xl font-bold mb-6">
               Entre em <span className="text-yellow-400">Contato</span>
             </h1>
-            <p className="text-xl md:text-2xl text-blue-100 max-w-3xl mx-auto">
+            <p className="text-xl md:text-2xl text-red-100 max-w-3xl mx-auto">
               Estamos aqui para ajudar! Entre em contato conosco e tire todas as suas dúvidas
             </p>
           </motion.div>
@@ -50,9 +51,9 @@ const Contato = () => {
       </section>
 
       {/* Contact Form & Info */}
-      <section className="py-20 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
+      <section className="py-16 bg-gray-50">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-3xl mx-auto">
             
 
             {/* Informações de Contato */}
@@ -82,7 +83,7 @@ const Contato = () => {
                     className="bg-white p-6 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300"
                   >
                     <div className="flex items-start space-x-4">
-                      <div className="w-12 h-12 bg-gradient-to-r from-purple-600 to-blue-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <div className="w-12 h-12 bg-gradient-to-r from-primary to-secondary rounded-full flex items-center justify-center flex-shrink-0">
                         <info.icon className="w-6 h-6 text-white" />
                       </div>
                       <div>
@@ -131,16 +132,14 @@ const Contato = () => {
                   <span>Conversar no WhatsApp</span>
                 </a>
               </motion.div>
-
-              
             </motion.div>
           </div>
         </div>
       </section>
 
       {/* Mapa/Localização */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-16 bg-white">
+        <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -159,10 +158,10 @@ const Contato = () => {
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="bg-gray-100 rounded-2xl h-96 flex items-center justify-center"
+            className="bg-gray-100 rounded-2xl h-80 sm:h-96 flex items-center justify-center"
           >
             <div className="text-center">
-              <MapPin className="w-16 h-16 text-purple-600 mx-auto mb-4" />
+              <MapPin className="w-16 h-16 text-primary mx-auto mb-4" />
               <h3 className="text-xl font-semibold text-gray-900 mb-2">
                 Mapa em Breve
               </h3>

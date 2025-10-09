@@ -40,14 +40,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
         />
         
         {discount > 0 && (
-          <div className="absolute top-4 left-4 bg-red-500 text-white px-2 py-1 rounded-full text-sm font-semibold">
+          <div className="absolute top-4 left-4 bg-accent text-white px-2 py-1 rounded-full text-sm font-semibold">
             -{discount}%
           </div>
         )}
         
         <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Link
-            to={`/produto/${product.id}`}
+            to={`/produtos/${product.id}`}
             className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors"
           >
             <Eye className="h-5 w-5 text-gray-700" />
@@ -59,7 +59,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
 
       <div className="p-6">
         <div className="flex items-center justify-between mb-2">
-          <span className="text-sm text-blue-600 font-medium bg-blue-50 px-2 py-1 rounded-full">
+          <span className="text-sm text-primary font-medium bg-red-50 px-2 py-1 rounded-full">
             {product.category}
           </span>
           <div className="flex items-center space-x-1">
@@ -68,7 +68,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
           </div>
         </div>
 
-        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-blue-600 transition-colors">
+        <h3 className="text-lg font-semibold text-gray-900 mb-2 group-hover:text-primary transition-colors">
           {product.name}
         </h3>
 
@@ -89,8 +89,8 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
           </div>
           
           <Link
-            to={`/produto/${product.id}`}
-            className="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-700 hover:to-purple-700 transition-all duration-300 transform hover:scale-105"
+            to={`/produtos/${product.id}`}
+            className="bg-accent text-white px-4 py-2 rounded-lg hover:bg-green-700 transition-all duration-300 transform hover:scale-105"
           >
             Ver Detalhes
           </Link>

@@ -31,6 +31,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    base: mode === 'production' ? '/podspb-clone/' : '/',
     build,
     esbuild,
     define,

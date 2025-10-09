@@ -67,7 +67,7 @@ ${formData.message}
     {
       icon: MapPin,
       title: 'Localização',
-      info: 'São Paulo, SP',
+      info: 'Esperança, PB',
       action: () => {}
     },
     {

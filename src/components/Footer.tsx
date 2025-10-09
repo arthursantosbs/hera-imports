@@ -1,7 +1,6 @@
 
-import React from 'react'
 import { Link } from 'react-router-dom'
-import {MapPin, Phone, Mail, Instagram, Facebook, Twitter, Youtube} from 'lucide-react'
+import {MapPin, Phone, Mail} from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -11,29 +10,15 @@ const Footer = () => {
           {/* Logo e Descrição */}
           <div className="col-span-1 md:col-span-2">
             <div className="flex items-center space-x-2 mb-4">
-              <div className="w-10 h-10 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">P</span>
+              <div className="w-10 h-10 bg-gradient-to-r from-primary to-secondary rounded-lg flex items-center justify-center">
+                <span className="text-white font-bold text-lg">H</span>
               </div>
-              <span className="text-2xl font-bold">PodsPB</span>
+              <span className="text-2xl font-bold">Hera pod’s</span>
             </div>
             <p className="text-gray-400 mb-6 max-w-md">
               Sua loja especializada em pods e cigarros eletrônicos em Esperança. 
               Oferecemos produtos de qualidade com entrega rápida e os melhores preços da Região.
             </p>
-            <div className="flex space-x-4">
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="w-5 h-5" />
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Youtube className="w-5 h-5" />
-              </a>
-            </div>
           </div>
 
           {/* Links Úteis */}
@@ -60,16 +45,7 @@ const Footer = () => {
                   Contato
                 </Link>
               </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Política de Privacidade
-                </a>
-              </li>
-              <li>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">
-                  Termos de Uso
-                </a>
-              </li>
+              {/* Aviso de Saúde removido */}
             </ul>
           </div>
 
@@ -87,7 +63,7 @@ const Footer = () => {
               </li>
               <li className="flex items-center space-x-2">
                 <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <span className="text-gray-400">contato@podspb.com.br</span>
+                <span className="text-gray-400">contato@herapods.com.br</span>
               </li>
             </ul>
 
@@ -98,9 +74,9 @@ const Footer = () => {
                 <input
                   type="email"
                   placeholder="Seu e-mail"
-                  className="flex-1 px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-l-md focus:outline-none focus:border-purple-600"
+                  className="flex-1 px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-l-md focus:outline-none focus:border-primary"
                 />
-                <button className="px-4 py-2 bg-purple-600 text-white rounded-r-md hover:bg-purple-700 transition-colors">
+                <button className="px-4 py-2 bg-primary text-white rounded-r-md hover:bg-secondary transition-colors">
                   OK
                 </button>
               </div>
