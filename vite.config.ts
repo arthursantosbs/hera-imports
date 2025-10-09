@@ -29,9 +29,11 @@ export default defineConfig(({ mode }) => {
     }
   }
 
+  const base = process.env.DEPLOY_TARGET === 'gh-pages' ? '/podspb-clone/' : '/'
+
   return {
     plugins: [react()],
-    base: mode === 'production' ? '/podspb-clone/' : '/',
+    base,
     build,
     esbuild,
     define,
