@@ -1,16 +1,13 @@
 
 import React, { useState, useEffect } from 'react'
 import { Link, useLocation } from 'react-router-dom'
-import {Menu, X, ShoppingCart} from 'lucide-react'
+import {Menu, X} from 'lucide-react'
 import { motion, AnimatePresence } from 'framer-motion'
-
-import { useCartStore } from '../store/cartStore';
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation();
-  const cart = useCartStore((state) => state.cart);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -24,7 +21,6 @@ const Header = () => {
     { path: '/', label: 'Início' },
     { path: '/produtos', label: 'Produtos' },
     { path: '/sobre', label: 'Sobre' },
-    { path: '/contato', label: 'Contato' }
   ]
 
   const isActive = (path: string) => location.pathname === path
@@ -66,18 +62,6 @@ const Header = () => {
             ))}
           </nav>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center space-x-4">
-            <Link to="/cart" className="relative p-2 text-gray-700 hover:text-primary transition-colors">
-              <ShoppingCart className="w-5 h-5" />
-              {cart.length > 0 && (
-                <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-white text-xs rounded-full flex items-center justify-center">
-                  {cart.reduce((acc, item) => acc + item.quantity, 0)}
-                </span>
-              )}
-            </Link>
-          </div>
-
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
@@ -111,16 +95,7 @@ const Header = () => {
                     {item.label}
                   </Link>
                 ))}
-                <div className="flex items-center justify-center space-x-4 pt-4 border-t border-gray-200">
-                  <Link to="/cart" className="relative p-2 text-gray-700 hover:text-primary transition-colors">
-                    <ShoppingCart className="w-5 h-5" />
-                    {cart.length > 0 && (
-                    <span className="absolute -top-1 -right-1 w-4 h-4 bg-primary text-white text-xs rounded-full flex items-center justify-center">
-                      {cart.reduce((acc, item) => acc + item.quantity, 0)}
-                    </span>
-                    )}
-                  </Link>
-                </div>
+                <div className="pt-4 border-t border-gray-200" />
               </div>
             </motion.div>
           )}

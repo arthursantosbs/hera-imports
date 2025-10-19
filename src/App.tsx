@@ -6,8 +6,6 @@ import Footer from './components/Footer';
 import Home from './pages/Home';
 import Produtos from './pages/Produtos';
 import Sobre from './pages/Sobre';
-import Contato from './pages/Contato';
-import CartPage from './pages/CartPage';
 import ProductDetail from './pages/ProductDetail';
 import AgeVerificationModal from './components/AgeVerificationModal';
 
@@ -34,8 +32,6 @@ function App() {
           <Route path="/produtos" element={<Produtos />} />
           <Route path="/produtos/:id" element={<ProductDetail />} />
           <Route path="/sobre" element={<Sobre />} />
-          <Route path="/contato" element={<Contato />} />
-          <Route path="/cart" element={<CartPage />} />
           {/* Rota de aviso removida */}
         </Routes>
       </main>

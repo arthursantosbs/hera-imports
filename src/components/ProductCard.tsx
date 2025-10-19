@@ -13,6 +13,7 @@ interface Product {
   category: string
   rating: number
   description: string
+  flavors: { name: string; stock: number }[]
 }
 
 interface ProductCardProps {
@@ -75,6 +76,17 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
         <p className="text-gray-600 text-sm mb-4 line-clamp-2">
           {product.description}
         </p>
+
+        <div className="mb-4">
+          <h4 className="text-xs uppercase tracking-wide text-gray-500 mb-1">Sabores</h4>
+          <div className="flex flex-wrap gap-2">
+            {product.flavors.map((flavor: { name: string }) => (
+              <span key={flavor.name} className="px-3 py-1 rounded-full bg-red-50 text-primary text-xs font-semibold">
+                {flavor.name}
+              </span>
+            ))}
+          </div>
+        </div>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">

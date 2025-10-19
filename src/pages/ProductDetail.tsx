@@ -1,18 +1,13 @@
 import React, { useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { Star, ShoppingCart, ChevronLeft, Shield } from 'lucide-react';
+import { Star, ChevronLeft, Percent } from 'lucide-react';
 import { getProducts } from '../data/products';
-import { useCartStore } from '../store/cartStore';
 
 const ProductDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const products = getProducts();
   const product = products.find(p => p.id === Number(id));
-
-  const addToCart = useCartStore((state) => state.addToCart);
-
-  const [selectedFlavor, setSelectedFlavor] = useState<string>('');
   const [mainImage, setMainImage] = useState<string | undefined>(product?.image);
 
   if (!product) {
@@ -25,15 +20,6 @@ const ProductDetail: React.FC = () => {
       </div>
     );
   }
-
-  const handleAddToCart = () => {
-    if (selectedFlavor) {
-      addToCart(product, selectedFlavor);
-      alert(`${product.name} (${selectedFlavor}) foi adicionado ao carrinho!`);
-    } else {
-      alert('Por favor, selecione um sabor.');
-    }
-  };
 
   return (
     <div className="bg-gray-50 min-h-screen pt-20">
@@ -98,33 +84,19 @@ const ProductDetail: React.FC = () => {
                 <h3 className="text-lg font-semibold text-gray-800 mb-3">Selecione o Sabor:</h3>
                 <div className="flex flex-wrap gap-3">
                   {product.flavors.map((flavor: { name: string; stock: number }) => (
-                    <button
+                    <span
                       key={flavor.name}
-                      onClick={() => setSelectedFlavor(flavor.name)}
-                      className={`px-4 py-2 rounded-full border-2 text-sm font-medium transition-all ${
-                        selectedFlavor === flavor.name
-                          ? 'bg-primary text-white border-primary shadow-lg'
-                          : 'bg-gray-100 text-gray-800 border-gray-200 hover:border-primary'
-                      }`}
+                      className="px-4 py-2 rounded-full border border-primary/20 bg-red-50 text-sm font-medium text-primary"
                     >
-                      {flavor.name} <span className="text-xs opacity-75">({flavor.stock} disp.)</span>
-                    </button>
+                      {flavor.name} — {flavor.stock} un.
+                    </span>
                   ))}
                 </div>
               </div>
-
-              <button
-                onClick={handleAddToCart}
-                disabled={!selectedFlavor || !product.inStock}
-                className="w-full bg-accent text-white py-4 rounded-lg font-semibold text-lg flex items-center justify-center hover:bg-green-700 disabled:bg-gray-400 transition-all duration-300 transform hover:scale-105"
-              >
-                <ShoppingCart size={22} className="mr-3" />
-                {product.inStock ? 'Adicionar ao Carrinho' : 'Produto Esgotado'}
-              </button>
               
-              <div className="mt-6 text-sm text-gray-600 flex items-center justify-center">
-                  <Shield size={16} className="mr-2 text-green-600"/>
-                  Pagamento seguro via Pix ou Dinheiro.
+              <div className="mt-6 text-sm text-gray-600 flex items-center justify-center space-x-2">
+                <Percent size={16} className="text-primary" />
+                <span>Valores sujeitos à confirmação no ponto de venda parceiro.</span>
               </div>
             </div>
           </motion.div>

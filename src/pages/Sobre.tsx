@@ -1,6 +1,6 @@
 
 import { motion } from 'framer-motion'
-import {Users, Award, Heart, Shield, Clock, Phone, CheckCircle, Star, ShoppingCart} from 'lucide-react'
+import {Users, Award, Heart, Shield, CheckCircle, Star, ShoppingCart, PackageOpen} from 'lucide-react'
 
 const Sobre = () => {
   const values = [
@@ -103,7 +103,7 @@ const Sobre = () => {
                 Nossa Loja <span className="gradient-text">100% Online</span>
               </h2>
               <p className="text-lg text-gray-600 mb-8">
-                Somos uma loja totalmente online, dedicada a entregar os melhores produtos de vaping com a conveniência de um clique. Compre de onde estiver e receba em casa.
+                Mantemos um catálogo sempre atualizado com os pods mais pedidos, destacando sabores e estoques disponíveis para parceiros de revenda.
               </p>
 
               <div className="space-y-6">
@@ -112,42 +112,20 @@ const Sobre = () => {
                     <ShoppingCart className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Como Comprar</h3>
-                    <p className="text-gray-600">Navegue pelo nosso site e faça seu pedido online.</p>
+                    <h3 className="font-semibold text-gray-900">Consulta Rápida</h3>
+                    <p className="text-gray-600">Use o site para conferir preços atuais, fotos e ficha técnica de cada produto.</p>
                   </div>
                 </div>
 
                 <div className="flex items-start space-x-4">
                   <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Clock className="w-6 h-6 text-primary" />
+                    <PackageOpen className="w-6 h-6 text-primary" />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-gray-900">Horário de Atendimento</h3>
-                    <p className="text-gray-600">Domingo a Domingo: 12h às 20h</p>
+                    <h3 className="font-semibold text-gray-900">Retirada com Parceiros</h3>
+                    <p className="text-gray-600">Após escolher, finalize diretamente com nossos pontos físicos credenciados.</p>
                   </div>
                 </div>
-
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-red-100 rounded-full flex items-center justify-center flex-shrink-0">
-                    <Phone className="w-6 h-6 text-primary" />
-                  </div>
-                  <div>
-                    <h3 className="font-semibold text-gray-900">Contato</h3>
-                    <p className="text-gray-600">+55 83 9402-7461</p>
-                    <p className="text-gray-600">contato@herapods.com.br</p>
-                  </div>
-                </div>
-              </div>
-
-              <div className="mt-8">
-                <a 
-                  href="https://wa.me/558394027461" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="btn-primary"
-                >
-                  Falar no WhatsApp
-                </a>
               </div>
             </motion.div>
 

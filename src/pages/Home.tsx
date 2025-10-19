@@ -2,7 +2,7 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { ShoppingCart, Zap, Shield, Star } from 'lucide-react';
+import { Eye, Zap, Shield, Star } from 'lucide-react';
 import { getProducts } from '../data/products';
 import ProductCard from '../components/ProductCard';
 
@@ -34,7 +34,7 @@ const Home: React.FC = () => {
             transition={{ delay: 0.4, duration: 0.6 }}
             className="text-xl md:text-2xl max-w-3xl mx-auto mb-8 text-red-100"
           >
-            A sua melhor fonte de Pods em Esperança-PB. Qualidade e sabor que impressionam.
+                  Catálogo digital com todos os pods disponíveis, sabores atualizados e valores para consulta rápida.
           </motion.p>
           <motion.div
             initial={{ y: 20, opacity: 0 }}
@@ -45,8 +45,8 @@ const Home: React.FC = () => {
               to="/produtos"
               className="bg-accent text-white font-bold py-3 px-8 rounded-full text-lg hover:bg-green-700 transition-transform transform hover:scale-105 shadow-lg"
             >
-              Ver Produtos
-              <ShoppingCart className="inline-block ml-2" />
+                    Ver catálogo completo
+                    <Eye className="inline-block ml-2" />
             </Link>
           </motion.div>
         </div>
@@ -80,8 +80,8 @@ const Home: React.FC = () => {
               className="p-6"
             >
               <Zap className="h-12 w-12 mx-auto text-primary mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Entrega Rápida</h3>
-              <p className="text-gray-600">Receba seus produtos em tempo recorde em toda a cidade de Esperança.</p>
+              <h3 className="text-2xl font-bold mb-2">Atualização Constante</h3>
+              <p className="text-gray-600">Sabores e estoques revisados para você saber exatamente o que está disponível.</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -90,8 +90,8 @@ const Home: React.FC = () => {
               className="p-6"
             >
               <Star className="h-12 w-12 mx-auto text-primary mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Qualidade Garantida</h3>
-              <p className="text-gray-600">Trabalhamos apenas com as melhores marcas e produtos 100% originais.</p>
+              <h3 className="text-2xl font-bold mb-2">Avaliações Reais</h3>
+              <p className="text-gray-600">Notas e impressões de quem já testou cada linha de pods.</p>
             </motion.div>
             <motion.div
               initial={{ opacity: 0, y: 20 }}
@@ -100,8 +100,8 @@ const Home: React.FC = () => {
               className="p-6"
             >
               <Shield className="h-12 w-12 mx-auto text-primary mb-4" />
-              <h3 className="text-2xl font-bold mb-2">Pagamento Facilitado</h3>
-              <p className="text-gray-600">Aceitamos Pix e dinheiro para sua conveniência.</p>
+              <h3 className="text-2xl font-bold mb-2">Detalhamento Completo</h3>
+              <p className="text-gray-600">Cada produto com ficha técnica, fotos e lista de sabores antes de visitar o ponto físico.</p>
             </motion.div>
           </div>
         </div>

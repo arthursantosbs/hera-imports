@@ -1,6 +1,5 @@
 
 import { Link } from 'react-router-dom'
-import {MapPin, Phone, Mail} from 'lucide-react'
 
 const Footer = () => {
   return (
@@ -31,56 +30,25 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
-                <Link to="/produtos" className="text-gray-400 hover:text-white transition-colors">
-                  Produtos
-                </Link>
-              </li>
-              <li>
                 <Link to="/sobre" className="text-gray-400 hover:text-white transition-colors">
                   Sobre Nós
                 </Link>
               </li>
               <li>
-                <Link to="/contato" className="text-gray-400 hover:text-white transition-colors">
-                  Contato
+                <Link to="/produtos" className="text-gray-400 hover:text-white transition-colors">
+                  Catálogo Completo
                 </Link>
               </li>
-              {/* Aviso de Saúde removido */}
             </ul>
           </div>
 
-          {/* Contato */}
+          {/* Informação */}
           <div>
-            <h3 className="text-lg font-semibold mb-4">Contato</h3>
-            <ul className="space-y-3">
-              <li className="flex items-center space-x-2">
-                <MapPin className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <span className="text-gray-400">Esperança, PB</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Phone className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <span className="text-gray-400">+55 83 9402-7461</span>
-              </li>
-              <li className="flex items-center space-x-2">
-                <Mail className="w-4 h-4 text-gray-400 flex-shrink-0" />
-                <span className="text-gray-400">contato@herapods.com.br</span>
-              </li>
-            </ul>
-
-            {/* Newsletter */}
-            <div className="mt-6">
-              <h4 className="text-sm font-semibold mb-2">Newsletter</h4>
-              <div className="flex">
-                <input
-                  type="email"
-                  placeholder="Seu e-mail"
-                  className="flex-1 px-3 py-2 bg-gray-800 text-white border border-gray-700 rounded-l-md focus:outline-none focus:border-primary"
-                />
-                <button className="px-4 py-2 bg-primary text-white rounded-r-md hover:bg-secondary transition-colors">
-                  OK
-                </button>
-              </div>
-            </div>
+            <h3 className="text-lg font-semibold mb-4">Sobre o Catálogo</h3>
+            <p className="text-gray-400 text-sm leading-relaxed">
+              Apresentamos os produtos disponíveis, com preços atualizados e todos os sabores em estoque.
+              A compra é realizada presencialmente com nossos parceiros autorizados.
+            </p>
           </div>
         </div>
 
@@ -89,13 +57,8 @@ const Footer = () => {
             <p className="text-gray-400 text-sm">
               © 2024 PodEs. Todos os direitos reservados.
             </p>
-            <div className="flex space-x-6 mt-4 md:mt-0">
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Política de Privacidade
-              </a>
-              <a href="#" className="text-gray-400 hover:text-white text-sm transition-colors">
-                Termos de Serviço
-              </a>
+            <div className="flex space-x-6 mt-4 md:mt-0 text-gray-500 text-sm">
+              Catálogo informativo – sem vendas online
             </div>
           </div>
         </div>

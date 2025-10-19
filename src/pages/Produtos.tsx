@@ -1,21 +1,14 @@
 
 import React, { useState, useMemo } from 'react';
 import { motion } from 'framer-motion';
-import { Search, Filter, ShoppingCart, Star, Eye, Heart } from 'lucide-react';
+import { Search, Filter, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
-import { useCartStore } from '../store/cartStore';
 import { getProducts } from '../data/products';
-import { Product } from '../types';
-import FlavorModal from '../components/FlavorModal';
-
 const Produtos = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('Todos');
   const [sortBy, setSortBy] = useState('name');
-  const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
-  
-  const addToCart = useCartStore((state) => state.addToCart);
   const products = getProducts();
 
   const categories = ['Todos', ...new Set(products.map(p => p.category))];
@@ -41,19 +34,6 @@ const Produtos = () => {
       }
     });
   }, [searchTerm, selectedCategory, sortBy, products]);
-
-  const handleOpenModal = (product: Product) => {
-    setSelectedProduct(product);
-  };
-
-  const handleCloseModal = () => {
-    setSelectedProduct(null);
-  };
-
-  const handleAddToCart = (product: Product, flavor: string) => {
-    addToCart(product, flavor);
-    // Opcional: Adicionar feedback ao usuário
-  };
 
   const discount = (original: number, current: number) => {
     return Math.round(((original - current) / original) * 100);
@@ -168,21 +148,10 @@ const Produtos = () => {
                       </div>
                     )}
                     
-                    {!product.inStock && (
-                      <div className="absolute inset-0 bg-black/50 flex items-center justify-center">
-                        <span className="bg-red-500 text-white px-4 py-2 rounded-full font-semibold">
-                          Esgotado
-                        </span>
-                      </div>
-                    )}
-                    
                     <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col space-y-2">
                       <Link to={`/produtos/${product.id}`} className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors">
-                        <Eye className="h-5 w-5 text-gray-700" />
+                        <span className="text-xs font-semibold text-gray-700">Detalhes</span>
                       </Link>
-                      <button className="bg-white/90 backdrop-blur-sm p-2 rounded-full hover:bg-white transition-colors">
-                        <Heart className="h-5 w-5 text-gray-700" />
-                      </button>
                     </div>
                   </div>
 
@@ -205,6 +174,17 @@ const Produtos = () => {
                       {product.description}
                     </p>
 
+                    <div className="mb-4">
+                      <h4 className="text-xs uppercase tracking-wide text-gray-500 mb-1">Sabores</h4>
+                      <div className="flex flex-wrap gap-2">
+                        {product.flavors.map((flavor) => (
+                          <span key={flavor.name} className="px-3 py-1 rounded-full bg-red-50 text-primary text-xs font-semibold">
+                            {flavor.name}
+                          </span>
+                        ))}
+                      </div>
+                    </div>
+
                     <div className="flex items-center justify-between mb-4">
                       <div className="flex items-center space-x-2">
                         <span className="text-2xl font-bold text-gray-900">
@@ -217,23 +197,12 @@ const Produtos = () => {
                         )}
                       </div>
                     </div>
-                    
-                    <button 
-                      disabled={!product.inStock}
-                      onClick={() => {
-                        if (product.inStock) {
-                          handleOpenModal(product);
-                        }
-                      }}
-                      className={`w-full py-2 rounded-lg transition-all duration-300 flex items-center justify-center ${
-                        product.inStock
-                          ? 'bg-accent text-white hover:bg-green-700 transform hover:scale-105'
-                          : 'bg-gray-300 text-gray-500 cursor-not-allowed'
-                      }`}
+                    <Link
+                      to={`/produtos/${product.id}`}
+                      className="w-full py-2 rounded-lg transition-all duration-300 flex items-center justify-center bg-gradient-to-r from-primary to-secondary text-white font-semibold hover:from-secondary hover:to-primary"
                     >
-                      <ShoppingCart className="w-4 h-4 mr-2" />
-                      {product.inStock ? 'Adicionar ao Carrinho' : 'Indisponível'}
-                    </button>
+                      Ver detalhes completos
+                    </Link>
                   </div>
                 </motion.div>
               ))}
@@ -258,11 +227,6 @@ const Produtos = () => {
         </div>
       </section>
 
-      <FlavorModal
-        product={selectedProduct}
-        onClose={handleCloseModal}
-        onAddToCart={handleAddToCart}
-      />
     </div>
   );
 };

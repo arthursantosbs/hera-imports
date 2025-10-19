@@ -13,9 +13,3 @@ export interface Product {
   specifications: Record<string, string>;
   flavors: { name: string; stock: number }[];
 }
-
-export interface CartItem extends Product {
-  cartItemId: string; // Combinação de id + sabor
-  quantity: number;
-  flavor: string;
-}
