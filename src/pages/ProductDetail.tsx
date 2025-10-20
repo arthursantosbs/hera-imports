@@ -9,6 +9,7 @@ const ProductDetail: React.FC = () => {
   const products = getProducts();
   const product = products.find(p => p.id === Number(id));
   const [mainImage, setMainImage] = useState<string | undefined>(product?.image);
+  const isOutOfStock = product ? !product.inStock : false;
 
   if (!product) {
     return (
@@ -79,18 +80,35 @@ const ProductDetail: React.FC = () => {
                 )}
               </div>
 
+              {isOutOfStock ? (
+                <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700 font-semibold">
+                  Produto esgotado no momento. Consulte nosso catálogo para novidades de reposição.
+                </div>
+              ) : (
+                <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-700 font-semibold">
+                  Disponível para retirada com nossos parceiros. Verifique sabores antes da compra.
+                </div>
+              )}
+
               {/* Seleção de Sabor */}
               <div className="mb-6">
                 <h3 className="text-lg font-semibold text-gray-800 mb-3">Selecione o Sabor:</h3>
                 <div className="flex flex-wrap gap-3">
-                  {product.flavors.map((flavor: { name: string; stock: number }) => (
-                    <span
-                      key={flavor.name}
-                      className="px-4 py-2 rounded-full border border-primary/20 bg-red-50 text-sm font-medium text-primary"
-                    >
-                      {flavor.name} — {flavor.stock} un.
-                    </span>
-                  ))}
+                  {product.flavors.map((flavor: { name: string; stock: number }) => {
+                    const flavorAvailable = flavor.stock > 0;
+                    return (
+                      <span
+                        key={flavor.name}
+                        className={`px-4 py-2 rounded-full border text-sm font-medium ${
+                          flavorAvailable
+                            ? 'border-primary/20 bg-red-50 text-primary'
+                            : 'border-gray-200 bg-gray-100 text-gray-500'
+                        }`}
+                      >
+                        {flavor.name} — {flavor.stock} un.
+                      </span>
+                    );
+                  })}
                 </div>
               </div>
               

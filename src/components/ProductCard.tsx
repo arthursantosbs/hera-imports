@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import {Eye, Star} from 'lucide-react'
 
 interface Product {
-  id: string
+  id: number
   name: string
   price: number
   originalPrice?: number
@@ -13,6 +13,7 @@ interface Product {
   category: string
   rating: number
   description: string
+  inStock: boolean
   flavors: { name: string; stock: number }[]
 }
 
@@ -25,6 +26,7 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
   const discount = product.originalPrice 
     ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
     : 0
+  const isOutOfStock = !product.inStock
 
   return (
     <motion.div
@@ -43,6 +45,12 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
         {discount > 0 && (
           <div className="absolute top-4 left-4 bg-accent text-white px-2 py-1 rounded-full text-sm font-semibold">
             -{discount}%
+          </div>
+        )}
+
+        {isOutOfStock && (
+          <div className="absolute inset-x-0 bottom-0 bg-red-600/90 text-white text-xs font-semibold uppercase tracking-wide py-2 text-center">
+            Esgotado
           </div>
         )}
         
@@ -77,20 +85,33 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
           {product.description}
         </p>
 
+        {isOutOfStock && (
+          <p className="text-sm font-semibold text-red-600 mb-4">Produto esgotado no momento</p>
+        )}
+
         <div className="mb-4">
           <h4 className="text-xs uppercase tracking-wide text-gray-500 mb-1">Sabores</h4>
           <div className="flex flex-wrap gap-2">
-            {product.flavors.map((flavor: { name: string }) => (
-              <span key={flavor.name} className="px-3 py-1 rounded-full bg-red-50 text-primary text-xs font-semibold">
-                {flavor.name}
-              </span>
-            ))}
+            {product.flavors.map((flavor) => {
+              const flavorAvailable = flavor.stock > 0
+              return (
+                <span
+                  key={flavor.name}
+                  className={`px-3 py-1 rounded-full text-xs font-semibold ${
+                    flavorAvailable ? 'bg-red-50 text-primary' : 'bg-gray-200 text-gray-500'
+                  }`}
+                >
+                  {flavor.name}
+                  {!flavorAvailable && ' (0)' }
+                </span>
+              )
+            })}
           </div>
         </div>
 
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-2">
-            <span className="text-2xl font-bold text-gray-900">
+            <span className={`text-2xl font-bold ${isOutOfStock ? 'text-gray-400' : 'text-gray-900'}`}>
               R$ {product.price.toLocaleString('pt-BR')}
             </span>
             {product.originalPrice && (

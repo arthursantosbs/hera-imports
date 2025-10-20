@@ -29,7 +29,7 @@ export default defineConfig(({ mode }) => {
     }
   }
 
-  const base = process.env.DEPLOY_TARGET === 'gh-pages' ? '/podspb-clone/' : '/'
+  const base = process.env.DEPLOY_TARGET === 'gh-pages' ? '/hera-imports/' : '/'
 
   return {
     plugins: [react()],

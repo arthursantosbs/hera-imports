@@ -15,7 +15,7 @@ const products: Product[] = [
     category: 'Descartável',
     rating: 4.9,
     description: 'O Lost Mary MO20000 Pro oferece uma tela de animação HD, bateria de 800mAh e potência ajustável de 13-25W.',
-    inStock: true,
+  inStock: false,
     features: [
       "Até 20.000 Puffs",
       "Tela de Animação HD",
@@ -29,9 +29,9 @@ const products: Product[] = [
       "Bobina": "Dual Mesh 0.9ohm"
     },
     flavors: [
-      { name: 'Mexican Mango', stock: 2 },
-      { name: 'Ice Mint', stock: 2 },
-      { name: 'Watermelon Ice', stock: 2 }
+      { name: 'Mexican Mango', stock: 0 },
+      { name: 'Ice Mint', stock: 0 },
+      { name: 'Watermelon Ice', stock: 0 }
     ]
   },
   {
@@ -46,7 +46,7 @@ const products: Product[] = [
     category: 'Descartável',
     rating: 4.8,
     description: 'O ELFBAR BC15000 é um descartável de longa duração com design ergonômico e sabores intensos.',
-    inStock: true,
+  inStock: false,
     features: [
       "Até 15.000 Puffs",
       "Design Ergonômico",
@@ -60,8 +60,40 @@ const products: Product[] = [
       "Bateria": "650mAh"
     },
     flavors: [
-      { name: 'Sour Apple Ice', stock: 1 },
-      { name: 'Passion Fruit Orange Guava', stock: 1 }
+      { name: 'Sour Apple Ice', stock: 0 },
+      { name: 'Passion Fruit Orange Guava', stock: 0 }
+    ]
+  },
+  {
+    id: 3,
+    name: 'Ignite V120',
+    price: 150.00,
+    originalPrice: 169.90,
+    image: 'https://ibb.co/Z1LWKppW',
+    gallery: [
+      'https://ibb.co/Z1LWKppW',
+      ''
+    ],
+    category: 'Descartável',
+    rating: 4.9,
+    description: 'O Ignite V120 entrega vapor consistente com design compacto, bateria reforçada e uma seleção vibrante de sabores.',
+    inStock: true,
+    features: [
+      'Até 12.000 puffs',
+      'Bobina mesh dupla para sabor intenso',
+      'Bateria recarregável de 800mAh',
+      'Indicador de nível LED',
+      'Porta USB-C para recarga rápida'
+    ],
+    specifications: {
+      'Capacidade de E-líquido': '18ml',
+      'Força da Nicotina': '5% (50mg)',
+      'Faixa de Potência': '12W - 18W'
+    },
+    flavors: [
+      { name: 'Straw Nana', stock: 1 },
+      { name: 'Green Apple', stock: 1 },
+      { name: 'Cactus', stock: 1 }
     ]
   }
 ];

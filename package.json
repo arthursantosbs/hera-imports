@@ -1,9 +1,9 @@
 {
-  "name": "podspb-clone",
+  "name": "hera-imports",
   "private": true,
   "version": "0.0.0",
   "type": "module",
-  "homepage": "https://arthursantosbs.github.io/podspb-clone",
+  "homepage": "https://arthursantosbs.github.io/hera-imports",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -19,7 +19,7 @@
     "lucide-react": "^0.540.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
-  "react-router-dom": "^6.26.0"
+    "react-router-dom": "^6.26.0"
   },
   "devDependencies": {
     "@eslint/js": "^9.9.1",
