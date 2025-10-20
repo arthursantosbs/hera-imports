@@ -11,5 +11,6 @@ export interface Product {
   inStock: boolean;
   features: string[];
   specifications: Record<string, string>;
+  restockPreview?: string;
   flavors: { name: string; stock: number }[];
 }

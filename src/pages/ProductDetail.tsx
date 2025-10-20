@@ -81,8 +81,16 @@ const ProductDetail: React.FC = () => {
               </div>
 
               {isOutOfStock ? (
-                <div className="mb-6 rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700 font-semibold">
-                  Produto esgotado no momento. Consulte nosso catálogo para novidades de reposição.
+                <div className="mb-6 space-y-3">
+                  <div className="rounded-lg border border-red-200 bg-red-50 px-4 py-3 text-red-700 font-semibold">
+                    Produto esgotado no momento. Consulte nosso catálogo para novidades de reposição.
+                  </div>
+                  {product.restockPreview && (
+                    <div className="rounded-lg border border-dashed border-amber-400 bg-amber-50 px-4 py-3 text-amber-700">
+                      <p className="text-sm font-semibold uppercase tracking-wide">Prévia de reposição</p>
+                      <p className="text-sm">{product.restockPreview}</p>
+                    </div>
+                  )}
                 </div>
               ) : (
                 <div className="mb-6 rounded-lg border border-green-200 bg-green-50 px-4 py-3 text-green-700 font-semibold">

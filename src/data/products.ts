@@ -17,6 +17,7 @@ const products: Product[] = [
     rating: 4.9,
     description: 'O Lost Mary MO20000 Pro oferece uma tela de animação HD, bateria de 800mAh e potência ajustável de 13-25W.',
     inStock: false,
+  restockPreview: 'Nova remessa prevista para toda sexta-feira',
     features: [
       "Até 20.000 Puffs",
       "Tela de Animação HD",
@@ -48,6 +49,7 @@ const products: Product[] = [
     rating: 4.8,
     description: 'O ELFBAR BC15000 é um descartável de longa duração com design ergonômico e sabores intensos.',
     inStock: false,
+  restockPreview: 'Reposição confirmada toda sexta-feira',
     features: [
       "Até 15.000 Puffs",
       "Design Ergonômico",
@@ -78,6 +80,7 @@ const products: Product[] = [
     rating: 4.9,
     description: 'O Ignite V120 entrega vapor consistente com design compacto, bateria reforçada e uma seleção vibrante de sabores.',
     inStock: true,
+  restockPreview: 'Conferência de sabores e recarga garantida toda sexta-feira',
     features: [
       'Até 12.000 puffs',
       'Bobina mesh dupla para sabor intenso',

@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Footer from './components/Footer';
@@ -7,11 +7,9 @@ import Produtos from './pages/Produtos';
 import Sobre from './pages/Sobre';
 import ProductDetail from './pages/ProductDetail';
 import AgeVerificationModal from './components/AgeVerificationModal';
-import FogOverlay from './components/FogOverlay';
 
 function App() {
   const [isAgeVerified, setIsAgeVerified] = useState(false);
-  const [showTransitionFog, setShowTransitionFog] = useState(true);
   // Removido aviso de saúde (banner)
 
   // Removido: nenhuma persistência; modal aparece em toda visita
@@ -20,24 +18,10 @@ function App() {
     setIsAgeVerified(true);
   };
 
-  useEffect(() => {
-    if (!isAgeVerified) {
-      setShowTransitionFog(true);
-      return;
-    }
-
-    const timer = window.setTimeout(() => {
-      setShowTransitionFog(false);
-    }, 6000);
-
-    return () => window.clearTimeout(timer);
-  }, [isAgeVerified]);
-
   // Removido: aviso de saúde
 
   return (
-    <div className="relative min-h-screen bg-white overflow-hidden">
-      <FogOverlay active={!isAgeVerified || showTransitionFog} density={!isAgeVerified ? 'dense' : 'light'} />
+    <div className="min-h-screen bg-white">
       {!isAgeVerified && <AgeVerificationModal onVerified={handleVerification} />}
       
       <Header />

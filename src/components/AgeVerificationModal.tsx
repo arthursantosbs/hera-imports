@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ShieldAlert, X } from 'lucide-react';
 
@@ -6,12 +6,12 @@ const AgeVerificationModal: React.FC<{ onVerified: () => void }> = ({ onVerified
   const [isBlocked, setIsBlocked] = useState(false);
   const [confirming, setConfirming] = useState(false);
   const isSmall = typeof window !== 'undefined' && window.innerWidth < 480;
-  const baseCount = isSmall ? 14 : 24;
+  const baseCount = isSmall ? 8 : 12;
   const smokePuffs = Array.from({ length: baseCount }, (_, i) => ({
-    left: `${(i * 6 + (i % 4) * 7) % 100}%`,
-    size: (isSmall ? 120 : 160) + (i % 6) * (isSmall ? 36 : 52),
-    duration: 8 + (i % 6) * 1.5,
-    delay: (i % 9) * 0.55,
+    left: `${(i * 8 + (i % 3) * 5) % 100}%`,
+    size: (isSmall ? 90 : 120) + (i % 5) * (isSmall ? 28 : 40),
+    duration: 7 + (i % 5) * 1.3,
+    delay: (i % 7) * 0.8,
   }));
 
   const handleVerification = (isOfAge: boolean) => {
@@ -74,11 +74,11 @@ const AgeVerificationModal: React.FC<{ onVerified: () => void }> = ({ onVerified
       </div>
       {confirming && (
         <div className="smoke-overlay">
-          {Array.from({ length: isSmall ? 20 : 32 }, (_, i) => ({
-            left: `${(i * 3.5 + (i % 6) * 2.8) % 100}%`,
-            size: (isSmall ? 140 : 190) + (i % 7) * (isSmall ? 40 : 60),
-            duration: 4.2 + (i % 5) * 0.85,
-            delay: (i % 7) * 0.12,
+          {Array.from({ length: isSmall ? 16 : 24 }, (_, i) => ({
+            left: `${(i * 4 + (i % 5) * 3) % 100}%`,
+            size: (isSmall ? 110 : 140) + (i % 6) * (isSmall ? 32 : 45),
+            duration: 4 + (i % 4) * 0.8,
+            delay: (i % 6) * 0.15,
           })).map((p, i) => (
             <span
               key={`burst-${i}`}
@@ -89,7 +89,7 @@ const AgeVerificationModal: React.FC<{ onVerified: () => void }> = ({ onVerified
                 height: `${p.size}px`,
                 animationDuration: `${p.duration}s`,
                 animationDelay: `${p.delay}s`,
-                opacity: 0.42,
+                opacity: 0.35,
               }}
             />
           ))}

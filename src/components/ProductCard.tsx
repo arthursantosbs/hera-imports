@@ -14,6 +14,7 @@ interface Product {
   rating: number
   description: string
   inStock: boolean
+  restockPreview?: string
   flavors: { name: string; stock: number }[]
 }
 
@@ -86,7 +87,14 @@ const ProductCard: React.FC<ProductCardProps> = ({ product, index }) => {
         </p>
 
         {isOutOfStock && (
-          <p className="text-sm font-semibold text-red-600 mb-4">Produto esgotado no momento</p>
+          <div className="mb-4 space-y-1">
+            <p className="text-sm font-semibold text-red-600">Produto esgotado no momento</p>
+            {product.restockPreview && (
+              <p className="text-xs text-gray-500 bg-gray-100 border border-dashed border-gray-300 rounded-md px-3 py-2">
+                Prévia de reposição: <span className="font-semibold text-gray-700">{product.restockPreview}</span>
+              </p>
+            )}
+          </div>
         )}
 
         <div className="mb-4">
