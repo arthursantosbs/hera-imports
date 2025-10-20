@@ -100,6 +100,79 @@ body {
   mix-blend-mode: screen;
 }
 
+@keyframes fog-drift {
+  0% {
+    transform: translate3d(calc(var(--fog-horizontal, 18%) * -0.85), 12%, 0)
+      scale(calc(var(--fog-scale, 1) * 0.95));
+    opacity: calc(var(--fog-opacity, 0.4) * 0.72);
+  }
+  50% {
+    transform: translate3d(calc(var(--fog-horizontal, 18%) * 0.45), -12%, 0)
+      scale(calc(var(--fog-scale, 1) * 1.15));
+    opacity: var(--fog-opacity, 0.4);
+  }
+  100% {
+    transform: translate3d(calc(var(--fog-horizontal, 18%) * 0.95), 10%, 0)
+      scale(calc(var(--fog-scale, 1) * 1.02));
+    opacity: calc(var(--fog-opacity, 0.4) * 0.78);
+  }
+}
+
+@keyframes fog-drift-alt {
+  0% {
+    transform: translate3d(calc(var(--fog-horizontal, 14%) * 0.65), 14%, 0)
+      scale(calc(var(--fog-scale, 1) * 0.9));
+    opacity: calc(var(--fog-opacity, 0.35) * 0.68);
+  }
+  50% {
+    transform: translate3d(calc(var(--fog-horizontal, 14%) * -0.55), -9%, 0)
+      scale(calc(var(--fog-scale, 1) * 1.08));
+    opacity: var(--fog-opacity, 0.35);
+  }
+  100% {
+    transform: translate3d(calc(var(--fog-horizontal, 14%) * 0.7), 8%, 0)
+      scale(calc(var(--fog-scale, 1) * 0.96));
+    opacity: calc(var(--fog-opacity, 0.35) * 0.75);
+  }
+}
+
+.global-fog {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 40;
+  mix-blend-mode: screen;
+  transition: opacity 1.8s ease;
+}
+
+.global-fog--dense {
+  background: linear-gradient(180deg, rgba(12, 12, 12, 0.65) 0%, rgba(12, 12, 12, 0.15) 45%, rgba(12, 12, 12, 0));
+}
+
+.global-fog--light {
+  background: linear-gradient(180deg, rgba(12, 12, 12, 0.35) 0%, rgba(12, 12, 12, 0.08) 40%, rgba(12, 12, 12, 0));
+}
+
+.global-fog__layer {
+  position: absolute;
+  top: -25%;
+  left: -25%;
+  width: 150%;
+  height: 150%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.35) 0%, rgba(255, 255, 255, 0.18) 45%, rgba(255, 255, 255, 0));
+  opacity: var(--fog-opacity, 0.4);
+  filter: blur(var(--fog-blur, 40px));
+  animation: fog-drift var(--fog-duration, 30s) ease-in-out infinite;
+  animation-delay: var(--fog-delay, 0s);
+  will-change: transform, opacity;
+}
+
+.global-fog__layer:nth-child(even) {
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.28) 0%, rgba(255, 255, 255, 0.16) 40%, rgba(255, 255, 255, 0));
+  animation-name: fog-drift-alt;
+}
+
 .glass-effect {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
