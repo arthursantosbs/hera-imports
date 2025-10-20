@@ -1,6 +1,8 @@
 
 import { Product } from '../types'; // Supondo que você tenha um arquivo de tipos
 
+const publicImage = (file: string) => `${import.meta.env.BASE_URL}images/${file}`;
+
 const products: Product[] = [
   {
     id: 1,
@@ -68,9 +70,9 @@ const products: Product[] = [
     name: 'Ignite V120',
     price: 150.00,
     originalPrice: 169.90,
-    image: '/images/ignite-v120.jpg',
+    image: publicImage('ignite-v120.jpg'),
     gallery: [
-      '/images/ignite-v120.jpg'
+      publicImage('ignite-v120.jpg')
     ],
     category: 'Descartável',
     rating: 4.9,
