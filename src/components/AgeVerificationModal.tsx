@@ -1,26 +1,21 @@
 import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { ShieldAlert, X } from 'lucide-react';
 
 const AgeVerificationModal: React.FC<{ onVerified: () => void }> = ({ onVerified }) => {
   const [isBlocked, setIsBlocked] = useState(false);
   const [confirming, setConfirming] = useState(false);
-  const isSmall = typeof window !== 'undefined' && window.innerWidth < 480;
-  const baseCount = isSmall ? 8 : 12;
-  const smokePuffs = Array.from({ length: baseCount }, (_, i) => ({
-    left: `${(i * 8 + (i % 3) * 5) % 100}%`,
-    size: (isSmall ? 90 : 120) + (i % 5) * (isSmall ? 28 : 40),
-    duration: 7 + (i % 5) * 1.3,
-    delay: (i % 7) * 0.8,
-  }));
 
   const handleVerification = (isOfAge: boolean) => {
+    if (confirming) {
+      return;
+    }
+
     if (isOfAge) {
-      // Trigger a brief smoke burst before closing
       setConfirming(true);
       setTimeout(() => {
         onVerified();
-      }, 900);
+      }, 500);
     } else {
       setIsBlocked(true);
     }
@@ -28,22 +23,7 @@ const AgeVerificationModal: React.FC<{ onVerified: () => void }> = ({ onVerified
 
   if (isBlocked) {
     return (
-      <div className="fixed inset-0 bg-black bg-opacity-90 flex items-center justify-center z-50 text-white text-center p-4">
-        <div className="smoke-overlay">
-          {smokePuffs.map((p, i) => (
-            <span
-              key={i}
-              className="smoke-puff"
-              style={{
-                left: p.left,
-                width: `${p.size}px`,
-                height: `${p.size}px`,
-                animationDuration: `${p.duration}s`,
-                animationDelay: `${p.delay}s`,
-              }}
-            />
-          ))}
-        </div>
+      <div className="fixed inset-0 bg-gradient-to-b from-black via-gray-900 to-black/90 flex items-center justify-center z-50 text-white text-center p-4">
         <div>
           <ShieldAlert className="mx-auto h-16 w-16 text-red-500 mb-4" />
           <h2 className="text-3xl font-bold mb-2">Acesso Restrito</h2>
@@ -56,45 +36,7 @@ const AgeVerificationModal: React.FC<{ onVerified: () => void }> = ({ onVerified
   }
 
   return (
-    <div className="fixed inset-0 bg-gray-900 bg-opacity-80 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-      <div className="smoke-overlay">
-        {smokePuffs.map((p, i) => (
-          <span
-            key={i}
-            className="smoke-puff"
-            style={{
-              left: p.left,
-              width: `${p.size}px`,
-              height: `${p.size}px`,
-              animationDuration: `${p.duration}s`,
-              animationDelay: `${p.delay}s`,
-            }}
-          />
-        ))}
-      </div>
-      {confirming && (
-        <div className="smoke-overlay">
-          {Array.from({ length: isSmall ? 16 : 24 }, (_, i) => ({
-            left: `${(i * 4 + (i % 5) * 3) % 100}%`,
-            size: (isSmall ? 110 : 140) + (i % 6) * (isSmall ? 32 : 45),
-            duration: 4 + (i % 4) * 0.8,
-            delay: (i % 6) * 0.15,
-          })).map((p, i) => (
-            <span
-              key={`burst-${i}`}
-              className="smoke-puff"
-              style={{
-                left: p.left,
-                width: `${p.size}px`,
-                height: `${p.size}px`,
-                animationDuration: `${p.duration}s`,
-                animationDelay: `${p.delay}s`,
-                opacity: 0.35,
-              }}
-            />
-          ))}
-        </div>
-      )}
+    <div className="fixed inset-0 bg-gray-950/90 backdrop-blur-sm flex items-center justify-center z-50 p-4">
       <motion.div
         initial={{ scale: 0.9, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}

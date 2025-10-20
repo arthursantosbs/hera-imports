@@ -63,43 +63,6 @@ body {
                     radial-gradient(circle at 75% 75%, #991b1b 0%, transparent 50%);
 }
 
-/* Heavy smoke effect for 18+ modal */
-@keyframes smoke-rise {
-  0% {
-    transform: translateY(20%) scale(0.8);
-    opacity: 0;
-  }
-  10% {
-    opacity: 0.35;
-  }
-  100% {
-    transform: translateY(-120%) scale(1.7);
-    opacity: 0;
-  }
-}
-
-.smoke-overlay {
-  position: absolute;
-  inset: 0;
-  overflow: hidden;
-  pointer-events: none;
-}
-
-.smoke-puff {
-  position: absolute;
-  bottom: -12%;
-  width: 160px;
-  height: 160px;
-  background: radial-gradient(closest-side, rgba(255,255,255,0.18), rgba(255,255,255,0.1), rgba(255,255,255,0));
-  filter: blur(10px);
-  opacity: 0.25;
-  border-radius: 50%;
-  animation-name: smoke-rise;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-  mix-blend-mode: screen;
-}
-
 .glass-effect {
   background: rgba(255, 255, 255, 0.1);
   backdrop-filter: blur(10px);
