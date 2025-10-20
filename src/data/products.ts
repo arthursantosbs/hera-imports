@@ -10,12 +10,11 @@ const products: Product[] = [
     image: 'https://i.imgur.com/C6jNnUW.png', // Substitua pela imagem correta
     gallery: [
       'https://i.imgur.com/C6jNnUW.png',
-    
     ],
     category: 'Descartável',
     rating: 4.9,
     description: 'O Lost Mary MO20000 Pro oferece uma tela de animação HD, bateria de 800mAh e potência ajustável de 13-25W.',
-  inStock: false,
+    inStock: false,
     features: [
       "Até 20.000 Puffs",
       "Tela de Animação HD",
@@ -46,7 +45,7 @@ const products: Product[] = [
     category: 'Descartável',
     rating: 4.8,
     description: 'O ELFBAR BC15000 é um descartável de longa duração com design ergonômico e sabores intensos.',
-  inStock: false,
+    inStock: false,
     features: [
       "Até 15.000 Puffs",
       "Design Ergonômico",
@@ -69,10 +68,9 @@ const products: Product[] = [
     name: 'Ignite V120',
     price: 150.00,
     originalPrice: 169.90,
-    image: 'https://ibb.co/Z1LWKppW',
+    image: '/images/ignite-v120.jpg',
     gallery: [
-      'https://ibb.co/Z1LWKppW',
-      ''
+      '/images/ignite-v120.jpg'
     ],
     category: 'Descartável',
     rating: 4.9,
@@ -91,9 +89,9 @@ const products: Product[] = [
       'Faixa de Potência': '12W - 18W'
     },
     flavors: [
-      { name: 'Straw Nana', stock: 1 },
-      { name: 'Green Apple', stock: 1 },
-      { name: 'Cactus', stock: 1 }
+  { name: 'Straw Nana', stock: 1 },
+  { name: 'Green Apple', stock: 1 },
+  { name: 'Cactus', stock: 1 }
     ]
   }
 ];
